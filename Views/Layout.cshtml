@@ -1,0 +1,28 @@
+﻿@{
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+}
+
+@if (Model.Header != null)
+{
+    <header id="layout-header" class="group">
+        <div id="header">
+            @Zone(Model.Header)
+        </div>
+    </header>
+}
+
+
+@if (Model.Navigation != null)
+{
+    <div id="layout-navigation" class="group">
+        @Zone(Model.Navigation)
+    </div>
+}
+
+
+@if (Model.Content != null)
+{
+    <div id="content" class="group">
+        @Zone(Model.Content)
+    </div>
+}

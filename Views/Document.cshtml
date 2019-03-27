@@ -1,0 +1,28 @@
+﻿@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+@{
+
+    RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico") });
+    //register in ResourceManifest
+    Style.Require("Bootstrap").AtHead();
+    Style.Require("ThemeStyle").AtHead();
+    Script.Require("jQuery").AtHead();
+    Script.Require("Bootstrap").AtHead();
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+}
+<!DOCTYPE html>
+<html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage()">
+<head>
+    <meta charset="utf-8" />
+    <title>@Html.Title(title, siteName)</title>
+    @Display(Model.Head)
+</head>
+<body>
+    @Display(Model.Body)
+
+    @*Shape tracer attach here*@
+    @Display(Model.Tail)
+</body>
+</html>
