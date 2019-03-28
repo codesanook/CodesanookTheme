@@ -8,6 +8,7 @@
     Style.Require("ThemeStyle").AtHead();
     Script.Require("jQuery").AtHead();
     Script.Require("Bootstrap").AtHead();
+    Script.Include("bundle.js").AtFoot();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
@@ -20,6 +21,7 @@
     @Display(Model.Head)
 </head>
 <body>
+    <div id="root"></div>
     @Display(Model.Body)
 
     @*Shape tracer attach here*@
