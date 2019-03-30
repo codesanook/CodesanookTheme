@@ -9,6 +9,7 @@
     Script.Require("jQuery").AtHead();
     Script.Require("Bootstrap").AtHead();
     Script.Include("bundle.js").AtFoot();
+    Style.Include("style.css").AtHead();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);

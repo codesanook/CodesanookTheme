@@ -2,8 +2,9 @@
 import * as ReactDOM from "react-dom";
 import { MdMenu, MdKeyboardArrowDown } from 'react-icons/md'
 import { useState } from 'react'
-import './../Sass/style.scss'
+import Slider from "react-slick";
 
+import './../Sass/style.scss'
 
 interface IMenu {
     text: string;
@@ -55,6 +56,40 @@ export const Navigation: React.FunctionComponent<IProps> = props => {
     )
 };
 
+const SimpleSlider: React.FunctionComponent = () => {
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    };
+
+    return (
+        <Slider {...settings}>
+            <div>
+                <h3>1</h3>
+            </div>
+            <div>
+                <h3>2</h3>
+            </div>
+            <div>
+                <h3>3</h3>
+            </div>
+            <div>
+                <h3>4</h3>
+            </div>
+            <div>
+                <h3>5</h3>
+            </div>
+            <div>
+                <h3>6</h3>
+            </div>
+        </Slider>
+    );
+}
+
+
 //https://stackoverflow.com/a/12709880/1872200
 declare global {
     interface Window {
@@ -65,4 +100,9 @@ declare global {
 ReactDOM.render(
     <Navigation menuData={window.menuData} />,
     document.getElementById("navigation") as HTMLElement
+);
+
+ReactDOM.render(
+    <SimpleSlider />,
+    document.getElementById("slide") as HTMLElement
 );
