@@ -4,76 +4,17 @@ import { MdMenu, MdKeyboardArrowDown } from 'react-icons/md'
 import { useState } from 'react'
 import './../Sass/style.scss'
 
-const menus = [
-    {
-        text: 'Home',
-        href: '/',
-        subs: []
-    },
-    {
-        text: 'Menu 1',
-        href: 'menu1',
-        subs: [
-            {
-                text: 'Sub Menu 1',
-                href: 'submenu1',
-            },
-            {
-                text: 'Sub Menu 2',
-                href: 'submenu2',
-            },
-            {
-                text: 'Sub Menu 3',
-                href: 'submenu3',
-            }
-        ]
-    },
-    {
-        text: 'Menu 2',
-        href: 'menu2',
-        subs: [
-            {
-                text: 'Sub Menu 1',
-                href: 'submenu1',
-            },
-            {
-                text: 'Sub Menu 2',
-                href: 'submenu2',
-            },
-            {
-                text: 'Sub Menu 3',
-                href: 'submenu3',
-            }
-        ]
-    },
-    {
-        text: 'Menu 3',
-        href: 'menu3',
-        subs: []
-    },
-    {
-        text: 'Menu 4',
-        href: 'menu4',
-        subs: [
-            {
-                text: 'Sub Menu 1',
-                href: 'submenu1',
-            },
-            {
-                text: 'Sub Menu 2',
-                href: 'submenu2',
-            },
-            {
-                text: 'Sub Menu 3',
-                href: 'submenu3',
-            }
-        ]
-    },
-];
 
+interface IMenu {
+    text: string;
+    href: string;
+    submenus?: IMenu[];
+}
+interface IProps {
+    menuData: IMenu[];
+}
 
-export const Navigation: React.FunctionComponent = () => {
-
+export const Navigation: React.FunctionComponent<IProps> = props => {
     const [openedMenu, setOpenedMenu] = useState('');
 
     //event handler https://medium.freecodecamp.org/reactjs-pass-parameters-to-event-handlers-ca1f5c422b9
@@ -90,16 +31,16 @@ export const Navigation: React.FunctionComponent = () => {
             <div id="main-nav">
                 <div className="container-wrapper">
                     <ul>
-                        {menus.map(menu => (
+                        {props.menuData.map(menu => (
                             <li key={menu.text} onClick={handleClickMenu(menu)} className={openedMenu === menu.text ? 'opened' : ''} >
-                                <a href={(menu.subs.length > 0) ? '#' : menu.href}>
+                                <a href={(menu.submenus!.length > 0) ? '#' : menu.href}>
                                     <span>{menu.text}</span>
-                                    {menu.subs.length > 0 && <MdKeyboardArrowDown />}
+                                    {menu.submenus!.length > 0 && <MdKeyboardArrowDown />}
                                 </a>
-                                {menu.subs.length > 0 &&
+                                {menu.submenus!.length > 0 &&
                                     <ul className="unstyle">
-                                        {menu.subs.map(sub => (
-                                            <li>
+                                        {menu.submenus!.map(sub => (
+                                            <li key={sub.text}>
                                                 <a href={sub.href}>{sub.text}</a>
                                             </li>
                                         ))}
@@ -114,7 +55,14 @@ export const Navigation: React.FunctionComponent = () => {
     )
 };
 
+//https://stackoverflow.com/a/12709880/1872200
+declare global {
+    interface Window {
+        menuData: IMenu[];
+    }
+}
+
 ReactDOM.render(
-    <Navigation />,
+    <Navigation menuData={window.menuData} />,
     document.getElementById("navigation") as HTMLElement
 );

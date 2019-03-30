@@ -3,7 +3,7 @@
     "target": "es5",
     "module": "es6",
     "moduleResolution": "node",
-    "lib": [ "es6", "dom" ],
+    "lib": ["es6", "dom"],
     "sourceMap": true,
     "jsx": "react",
     "strict": true,
@@ -11,6 +11,6 @@
     "rootDir": "scripts",
     "outDir": "scripts"
   },
-  "include": [ "**/*.ts", "**/*.tsx" ],
-  "exclude": [ "node_modules" ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
