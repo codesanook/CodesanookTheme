@@ -1,11 +1,13 @@
-﻿@{
+﻿@using CodeSanook.Common.Web
+@{
     Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+    var contentPath = this.GetUrlPathRelativeToModule("Content");
 }
 
 <div id="header">
     <div class="container-wrapper">
         <div class="logo text-center p-t-10 p-b-10 has-border-bottom">
-            <img src="images/logo.png" /><br />
+            <img src="@this.Combine(contentPath, "logo.png")" /><br />
             <small>สนุกไปกับการเขียนโค้ด สังคมแห่งการเรืยนรู้ แบ่งปันความรู้ด้านโปรแกรมมิ่ง</small>
         </div>
     </div>

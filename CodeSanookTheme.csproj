@@ -108,12 +108,12 @@
     <Content Include="Content\pic-ex-05.jpg" />
     <Content Include="Content\pic-ex-06.jpg" />
     <Content Include="Content\pic-ex-07.jpg" />
-    <Content Include="scripts\script.js" />
-    <Content Include="styles\style.css" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Styles\style.css" />
     <Content Include="Views\index.html" />
     <Content Include="Web.config" />
-    <Content Include="scripts\Web.config" />
-    <Content Include="styles\Web.config" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Styles\Web.config" />
     <Content Include="Content\Web.config" />
     <Content Include="Theme.txt" />
     <Content Include="Theme.png" />
@@ -132,6 +132,10 @@
       <Name>Orchard.Core</Name>
       <Private>$(MvcBuildViews)</Private>
     </ProjectReference>
+    <ProjectReference Include="..\..\Modules\CodeSanook.Common\CodeSanook.Common.csproj">
+      <Project>{7104e4b7-0fdc-4734-a812-1c6a8f71635d}</Project>
+      <Name>CodeSanook.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Document.cshtml" />
@@ -140,16 +144,13 @@
     <Content Include="Views\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Parts.MenuWidget.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\MenuItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\MenuItemLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sass\style.scss" />
+    <Content Include="Sass\style.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
@@ -167,10 +168,13 @@
     <Content Include="tslint.json" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\index.tsx" />
+    <TypeScriptCompile Include="Scripts\index.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.MenuWidget.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
