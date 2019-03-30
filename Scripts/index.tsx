@@ -3,7 +3,6 @@ import * as ReactDOM from "react-dom";
 import { MdMenu, MdKeyboardArrowDown } from 'react-icons/md'
 import { useState } from 'react'
 import Slider from "react-slick";
-
 import './../Sass/style.scss'
 
 interface IMenu {

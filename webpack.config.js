@@ -1,11 +1,24 @@
-﻿const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+﻿const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: "../Styles/style.css"
-        })
+        }),
+        new CopyPlugin([{
+                from: './node_modules/slick-carousel/slick/fonts/*',
+                to: './../Styles/fonts',
+                flatten: true
+            },
+            {
+                from: './node_modules/slick-carousel/slick/ajax-loader.gif',
+                to: './../Styles',
+                flatten: true
+            }
+        ]),
     ],
     entry: "./scripts/index.tsx",
     output: {
