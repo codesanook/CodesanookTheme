@@ -22,7 +22,6 @@
     </header>
 }
 
-
 @if (Model.Navigation != null)
 {
     <div id="layout-navigation" class="group">
@@ -30,6 +29,20 @@
     </div>
 }
 
+@if (Model.Featured != null)
+{
+    <h1>feature</h1>
+    <div id="layout-featured" class="group">
+        @Zone(Model.Featured)
+    </div>
+}
+
+@if (Model.BeforeMain != null)
+{
+    <div id="layout-before-main" class="group">
+        @Zone(Model.BeforeMain)
+    </div>
+}
 
 @if (Model.Content != null)
 {
