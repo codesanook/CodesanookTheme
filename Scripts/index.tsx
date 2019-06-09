@@ -1,107 +1,81 @@
-﻿import * as React from "react";
+﻿//subject to export to external
+import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MdMenu, MdKeyboardArrowDown } from 'react-icons/md'
-import { useState } from 'react'
-import Slider from "react-slick";
+
 import './../Sass/style.scss'
+import Logo from "./Logo";
+import Navigation from "./Navigation";
+import 'bootstrap';
+import ArticleList from "./ArticleComponent";
+import Pagination from "./Pagination";
+import Widget from "./Widget";
+import TagList from "./Tag";
+import articlesData from './data/ArticleData';
+import menuData from './data/MenuData';
+import tagsData from './data/TagData';
 
-interface IMenu {
-    text: string;
-    href: string;
-    submenus?: IMenu[];
-}
-interface IProps {
-    menuData: IMenu[];
-}
+const moduleRoot = 'Themes/CodeSanookTheme/Content/images';
+/*
+useful react links
+https://reactjs.org/docs/conditional-rendering.html
+*/
+//https://stackoverflow.com/a/12709880/1872200
+// declare global {
+//     interface Window {
+//         menuData: IMenu[];
+//     }
+// }
 
-export const Navigation: React.FunctionComponent<IProps> = props => {
-    const [openedMenu, setOpenedMenu] = useState('');
-
-    //event handler https://medium.freecodecamp.org/reactjs-pass-parameters-to-event-handlers-ca1f5c422b9
-    const handleClickMenu = (menu: any) => (e: React.MouseEvent<HTMLLIElement>) => {
-        if (menu.text == openedMenu) {
-            setOpenedMenu('');
-        }
-        setOpenedMenu(menu.text);
-    };
-
+//https://stackoverflow.com/a/43459021/1872200
+const Page: React.FunctionComponent = () => {
     return (
         <React.Fragment>
-            <i id="btn-main-nav" className="material-icons"> <MdMenu /> </i>
-            <div id="main-nav">
-                <div className="container-wrapper">
-                    <ul>
-                        {props.menuData.map(menu => (
-                            <li key={menu.text} onClick={handleClickMenu(menu)} className={openedMenu === menu.text ? 'opened' : ''} >
-                                <a href={(menu.submenus!.length > 0) ? '#' : menu.href}>
-                                    <span>{menu.text}</span>
-                                    {menu.submenus!.length > 0 && <MdKeyboardArrowDown />}
-                                </a>
-                                {menu.submenus!.length > 0 &&
-                                    <ul className="unstyle">
-                                        {menu.submenus!.map(sub => (
-                                            <li key={sub.text}>
-                                                <a href={sub.href}>{sub.text}</a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                }
-                            </li>
-                        ))}
-                    </ul>
+            <Logo />
+            <Navigation menuData={menuData} />
+
+            <div className='container-fluid'>
+                <div className="row">
+                    <div className="col-md-8">
+                        <ArticleList articles={articlesData} />
+                        <Pagination />
+                    </div>
+                    <div className="col-md-4">
+                        <Widget title="About Codesanook">
+                            <img src={`${moduleRoot}/pic-ex-04.jpg`} className="img-fluid" />
+                            <div className="m-t-10 text-justify">
+                                Pellentesque habitant morbi tristique senectus et netus
+                                et malesuada fames ac turpis egestas.
+                                Proin cursus tortor vel ante tempus, ullamcorper consequat est tempus.
+                                Cras id felis nisl. Donec mattis blandit nulla,
+                                ac lobortis magna aliquam id.
+                                Sed eget quam nec purus posuere lobortis in a tortor.
+                        </div>
+                        </Widget>
+                        <Widget title="Get connected">
+                            <div style={{
+                                backgroundColor: '#4267b2',
+                                textAlign: 'center',
+                                padding: '150px 0',
+                                color: 'white'
+                            }}>
+                                Facebook
+                        </div>
+                        </Widget>
+                        <Widget title="Recently posts">
+                            <ArticleList
+                                articles={articlesData}
+                                setting={{ hidePicture: true, hideTag: true, trimDescription: true }} />
+                        </Widget>
+                        <Widget title="Popular tags">
+                            <TagList tags={tagsData} bigTag={true} />
+                        </Widget>
+                    </div>
                 </div>
             </div>
         </React.Fragment>
     )
-};
-
-const SimpleSlider: React.FunctionComponent = () => {
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
-
-    return (
-        <Slider {...settings}>
-            <div>
-                <h3>1</h3>
-            </div>
-            <div>
-                <h3>2</h3>
-            </div>
-            <div>
-                <h3>3</h3>
-            </div>
-            <div>
-                <h3>4</h3>
-            </div>
-            <div>
-                <h3>5</h3>
-            </div>
-            <div>
-                <h3>6</h3>
-            </div>
-        </Slider>
-    );
 }
-
-
-//https://stackoverflow.com/a/12709880/1872200
-declare global {
-    interface Window {
-        menuData: IMenu[];
-    }
-}
-
 ReactDOM.render(
-    <Navigation menuData={window.menuData} />,
-    document.getElementById("navigation") as HTMLElement
-);
-
-ReactDOM.render(
-    <SimpleSlider />,
-    document.getElementById("slide") as HTMLElement
+    <Page />,
+    document.getElementById("root") as HTMLElement
 );

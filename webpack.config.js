@@ -1,82 +1,77 @@
-﻿const path = require('path');
+/*
+Useful webpack setup link
+Setup webpack with Bootstrap
+https://getbootstrap.com/docs/4.0/getting-started/webpack/
+*/
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-
 
 module.exports = {
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: "../Styles/style.css"
-        }),
-        new CopyPlugin([{
-                from: './node_modules/slick-carousel/slick/fonts/*',
-                to: './../Styles/fonts',
-                flatten: true
-            },
-            {
-                from: './node_modules/slick-carousel/slick/ajax-loader.gif',
-                to: './../Styles',
-                flatten: true
-            }
-        ]),
-    ],
-    entry: "./scripts/index.tsx",
+    entry: {
+        index: './scripts/index.tsx'
+    },
     output: {
-        path: path.resolve(__dirname, "Scripts"),
-        filename: "bundle.js",
-        publicPath: "/Themes/CodeSanookTheme"
+        path: path.resolve(__dirname, 'scripts'),
+        filename: '[name]-bundle.js',
+    },
+    // Resolve JS setup 
+    // https://stackoverflow.com/questions/47721962/webpack-react-typescript-module-not-found-in-node-modules-react?rq=1
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', 'jsx']
     },
     module: {
         rules: [{
-                test: /\.tsx?$/, //support ts or tsx
-                use: "ts-loader",
-                exclude: /node_modules/
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[path][name].[ext]',
-                        outputPath: '../Styles'
+            test: /\.(ts|js)x?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.(png|jpe?g|gif|svg|eot|ttf|woff)$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: ''
+                }
+            }]
+        }, {
+            test: /\.scss$/,
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: 'styles'
+                }
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS modules
+            }, {
+                loader: "resolve-url-loader"
+            }, {
+                loader: 'postcss-loader', // Run post css actions
+                options: {
+                    plugins: function () { // post css plugins, can be exported to postcss.config.js
+                        return [
+                            require('precss'),
+                            require('autoprefixer')
+                        ];
                     }
-                }]
-            },
-            {
-                test: /\.scss$/,
-                use: [{
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    {
-                        loader: "css-loader",
-                        options: {
-                            url: false,
-                        }
-                    }, // translates CSS into CommonJS
-                    {
-                        loader: "resolve-url-loader",
-                        options: {
-                            debug: true,
-                        }
-                    },
-                    {
-                        loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
-                        options: {
-                            sourceMap: true,
-                            sourceMapContents: false
-                        }
-                    }
-                ],
-                exclude: /node_modules/
-            }
-        ]
+                }
+            }, {
+                loader: "sass-loader", // compiles Sass to CSS, using Node Sass by default
+                options: {
+                    sourceMap: true
+                }
+            }],
+            exclude: /node_modules/
+        }],
     },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js", ".css", ".scss"]
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9000
+    //https://stackoverflow.com/a/51167616/1872200
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "../styles/style.css",
+        })
+    ],
+    externals: {
+        //module react and retrieve as React variable https://webpack.js.org/configuration/externals/#string
+        React: ['react'],
+        ReactDOM: ['react-dom']
     }
 };

@@ -8,9 +8,9 @@
     "jsx": "react",
     "strict": true,
     "noImplicitReturns": true,
-    "rootDir": "scripts",
     "outDir": "scripts"
   },
-  "include": ["**/*.ts", "**/*.tsx", "../../Modules/CodeSanook.SlideWidget/Models/SlideWidgetPart.cs", "../../Modules/CodeSanook.SlideWidget/Models/SlideWidgetPartRecord.cs", "../../Modules/CodeSanook.SlideWidget/Handlers/SideWidgetPartHandler.cs", "../../Modules/CodeSanook.SlideWidget/Drivers/SlideWidgetDriver.cs"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "compileOnSave": false
 }
