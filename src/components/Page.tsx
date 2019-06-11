@@ -1,8 +1,7 @@
 ﻿//subject to export to external
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 
-import './../Sass/style.scss'
+import './../sass/style.scss'
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import 'bootstrap';
@@ -74,8 +73,6 @@ const Page: React.FunctionComponent = () => {
             </div>
         </React.Fragment>
     )
-}
-ReactDOM.render(
-    <Page />,
-    document.getElementById("root") as HTMLElement
-);
+};
+
+export default Page;

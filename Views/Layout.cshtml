@@ -1,4 +1,4 @@
-﻿@using CodeSanook.Common.Web
+﻿@using Codesanook.Common.Web
 @{
     Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
     var contentPath = this.GetUrlPathRelativeToModule("Content");
@@ -50,3 +50,7 @@
         @Zone(Model.Content)
     </div>
 }
+
+<h1>Hello world</h1>
+@Html.React("Components.Counter", new { defaultCounterValue = 99 })
+@Html.ReactInitJavaScript()

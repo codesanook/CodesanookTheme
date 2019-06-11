@@ -5,11 +5,12 @@
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico") });
     //register in ResourceManifest
     Style.Require("Bootstrap").AtHead();
-    Style.Require("ThemeStyle").AtHead();
     Script.Require("jQuery").AtHead();
     Script.Require("Bootstrap").AtHead();
-    Script.Include("bundle.js").AtFoot();
+    Script.Require("React").AtHead();
+    Script.Require("ReactDOM").AtHead();
     Style.Include("style.css").AtHead();
+    Script.Include("main-bundle.js").AtHead();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);

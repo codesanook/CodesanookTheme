@@ -35,21 +35,6 @@ const Navigation: React.FunctionComponent<Props> = props => {
         }
     };
 
-    // const handleResize = () => {
-    //     if(window.innerWidth <= 768){
-    //         setMainMenuClassName('menu menu--inactive');
-    //     }else{
-    //         setMainMenuClassName('menu');
-    //     }
-    // };
-    // useEffect(() => {
-
-    //     window.addEventListener('resize', handleResize);
-
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     }
-    // }, []);
     return (
         <React.Fragment>
             <i className='menu-button' onClick={handleMenuButtonClick}>
