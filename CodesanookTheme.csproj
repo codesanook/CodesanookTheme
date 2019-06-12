@@ -116,6 +116,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\icon-profile.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\pic-ex-01.jpg" />
+    <Content Include="Content\images\pic-ex-02.jpg" />
+    <Content Include="Content\images\pic-ex-03.jpg" />
+    <Content Include="Content\images\pic-ex-04.jpg" />
+    <Content Include="Content\images\pic-ex-05.jpg" />
+    <Content Include="Content\images\pic-ex-06.jpg" />
+    <Content Include="Content\images\pic-ex-07.jpg" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
     <Content Include="Styles\Web.config" />

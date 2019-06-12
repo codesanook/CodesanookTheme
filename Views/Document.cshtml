@@ -1,12 +1,11 @@
-﻿@using Orchard.Mvc.Html;
-@using Orchard.UI.Resources;
+﻿@using Orchard.Mvc.Html
+@using Orchard.UI.Resources
+@using Codesanook.Common.Web
+
 @{
 
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico") });
     //register in ResourceManifest
-    Style.Require("Bootstrap").AtHead();
-    Script.Require("jQuery").AtHead();
-    Script.Require("Bootstrap").AtHead();
     Script.Require("React").AtHead();
     Script.Require("ReactDOM").AtHead();
     Style.Include("style.css").AtHead();
@@ -20,13 +19,15 @@
 <head>
     <meta charset="utf-8" />
     <title>@Html.Title(title, siteName)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Display(Model.Head)
 </head>
 <body>
-    <div id="root"></div>
     @Display(Model.Body)
 
     @*Shape tracer attach here*@
     @Display(Model.Tail)
+
+    @Html.ReactInitJavaScript()
 </body>
 </html>

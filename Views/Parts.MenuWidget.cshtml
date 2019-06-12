@@ -1,30 +1,20 @@
-﻿@using Newtonsoft.Json
-@using Newtonsoft.Json.Serialization
-
+﻿@using Codesanook.Common.Web
 @{
     // Model is Model.Menu from the layout (Layout.Menu)
     var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Menu.Items);
     var menus = items.Select(item => new
     {
-        item.Text.Text,
-        item.Href,
-        Submenus = ((IList<dynamic>)Enumerable.Cast<dynamic>(item.Items))
+        text = item.Text.Text,
+        href = item.Href,
+        submenus = ((IList<dynamic>)Enumerable.Cast<dynamic>(item.Items))
              .Select(childItem =>
                  new
                  {
-                     childItem.Text.Text,
-                     childItem.Href
+                     text = childItem.Text.Text,
+                     href = childItem.Href
                  }
              )
     });
 }
 
-<script>
-    const menus = @Html.Raw(@JsonConvert.SerializeObject(menus, new JsonSerializerSettings
-          {
-              ContractResolver = new CamelCasePropertyNamesContractResolver(),
-              Formatting = Formatting.Indented
-          }));
-    this.window.menuData = menus;
-</script>
-<div id="navigation"></div>
+@Html.React("Components.Navigation", new { menuData = menus })

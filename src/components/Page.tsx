@@ -1,7 +1,6 @@
 ﻿//subject to export to external
 import * as React from "react";
 
-import './../sass/style.scss'
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import 'bootstrap';
