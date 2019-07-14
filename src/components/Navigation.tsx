@@ -37,42 +37,46 @@ const Navigation: React.FunctionComponent<Props> = props => {
 
     return (
         <React.Fragment>
-            <i className='menu-button' onClick={handleMenuButtonClick}>
-                {
-                    mainMenuClassName === 'menu' ? <md.MdMenu /> : <md.MdClose />
-                }
-            </i>
-            <ul className={mainMenuClassName}>
-                {
-                    props.menuData.map(menu => {
-                        const subMenuClass = openedMenu === menu.text ? 'menu--stack menu--active' : 'menu--inactive';
+            <div className='text-right'>
+                <i className='menu-button' onClick={handleMenuButtonClick}>
+                    {
+                        mainMenuClassName === 'menu' ? <md.MdMenu /> : <md.MdClose />
+                    }
+                </i>
+            </div>
+            <div style={{ position: 'relative' }}>
+                <ul className={mainMenuClassName}>
+                    {
+                        props.menuData.map(menu => {
+                            const subMenuClass = openedMenu === menu.text ? 'menu--stack menu--active' : 'menu--inactive';
 
-                        return (
-                            <li key={menu.text} className='menu__item'
-                                onMouseOver={handleClickMenu(menu)}
-                                onMouseOut={handleClickMenu(menu)} >
-                                <a className='menu__link'
-                                    href={(menu.submenus!.length > 0) ? '#' : menu.href} >
-                                    {menu.text} {menu.submenus!.length > 0 && <md.MdKeyboardArrowDown />}
-                                </a>
-                                {
-                                    menu.submenus!.length > 0 &&
-                                    <ul className={'menu ' + subMenuClass}>
-                                        {menu.submenus!.map(sub => (
-                                            <li className='menu__item menu__item--stack' key={sub.text}>
-                                                <a className='menu__link' href={sub.href}>
-                                                    {sub.text}
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                }
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </React.Fragment>
+                            return (
+                                <li key={menu.text} className='menu__item'
+                                    onMouseOver={handleClickMenu(menu)}
+                                    onMouseOut={handleClickMenu(menu)} >
+                                    <a className='menu__link'
+                                        href={(menu.submenus!.length > 0) ? '#' : menu.href} >
+                                        {menu.text} {menu.submenus!.length > 0 && <md.MdKeyboardArrowDown />}
+                                    </a>
+                                    {
+                                        menu.submenus!.length > 0 &&
+                                        <ul className={'menu ' + subMenuClass}>
+                                            {menu.submenus!.map(sub => (
+                                                <li className='menu__item menu__item--stack' key={sub.text}>
+                                                    <a className='menu__link' href={sub.href}>
+                                                        {sub.text}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    }
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </React.Fragment >
     )
 };
 

@@ -1,9 +1,6 @@
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
-
-.xxx {
-  color: #FFF;
-}
+@import "~font-awesome/scss/font-awesome";
 
 /*
 Useful links
@@ -13,66 +10,66 @@ https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-pr
 $main-color: #e394b2;
 
 * {
-  box-sizing: border-box !important;
+    box-sizing: border-box !important;
 }
 
 #btn-main-nav {
-  display: none;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 7px 15px;
-  border: solid 1px #ccc;
-  border-radius: 5px;
-  z-index: 2;
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 7px 15px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    z-index: 2;
 }
 
 @mixin transform($x) {
-  -webkit-transform: $x;
-  -moz-transform: $x;
-  -ms-transform: $x;
-  -o-transform: $x;
-  transform: $x;
+    -webkit-transform: $x;
+    -moz-transform: $x;
+    -ms-transform: $x;
+    -o-transform: $x;
+    transform: $x;
 }
 
 @mixin transition($x) {
-  -webkit-transition: $x;
-  -moz-transition: $x;
-  -ms-transition: $x;
-  -o-transition: $x;
-  transition: $x;
+    -webkit-transition: $x;
+    -moz-transition: $x;
+    -ms-transition: $x;
+    -o-transition: $x;
+    transition: $x;
 }
 
 @mixin optional-at-root($sel) {
-  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
-    @content;
-  }
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
 }
 
 @mixin input-placeholder {
-  @include optional-at-root("::-webkit-input-placeholder") {
-    @content;
-  }
+    @include optional-at-root("::-webkit-input-placeholder") {
+        @content;
+    }
 
-  @include optional-at-root(":-moz-placeholder") {
-    @content;
-  }
+    @include optional-at-root(":-moz-placeholder") {
+        @content;
+    }
 
-  @include optional-at-root("::-moz-placeholder") {
-    @content;
-  }
+    @include optional-at-root("::-moz-placeholder") {
+        @content;
+    }
 
-  @include optional-at-root(":-ms-input-placeholder") {
-    @content;
-  }
+    @include optional-at-root(":-ms-input-placeholder") {
+        @content;
+    }
 }
 
 a,
 a:hover,
 a:visited,
 a:focus {
-  color: #222;
-  text-decoration: none;
+    color: #222;
+    text-decoration: none;
 }
 
 h1,
@@ -81,232 +78,264 @@ h3,
 h4,
 h5,
 h6 {
-  color: #222;
+    color: #222;
 }
 
 body {
-  letter-spacing: 0.05em;
-  font-family: "Pridi", serif;
-  font-size: 16px;
-  background-color: #fff;
-  color: #636363;
-  overflow-x: hidden;
+    letter-spacing: 0.05em;
+    font-family: "Pridi", serif;
+    font-size: 16px;
+    background-color: #fff;
+    color: #636363;
+    overflow-x: hidden;
 }
 
 .article {
-  &__picture {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  &__title {
-    display: block;
-    font-weight: bold;
-    font-size: 20px;
-    transition: color 0.1s linear;
-
-    &:hover {
-      color: $main-color;
+    &__picture {
+        width: 100%;
+        margin-bottom: 10px;
     }
-  }
 
-  &__read-more {
-    text-decoration: underline;
-  }
+    &__title {
+        display: block;
+        font-weight: bold;
+        font-size: 20px;
+        transition: color 0.1s linear;
 
-  &__description {
-    display: block;
-
-    &--trim {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-
-      -webkit-line-clamp: 3;
-      /* autoprefixer: off */
-      -webkit-box-orient: vertical;
-      /* autoprefixer: on */
+        &:hover {
+            color: $main-color;
+        }
     }
-  }
+
+    &__read-more {
+        text-decoration: underline;
+    }
+
+    &__description {
+        display: block;
+
+        &--trim {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+        }
+    }
 }
 
 .article-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-  &__item {
-    padding: 10px;
+    &__item {
+        padding: 10px;
 
-    &:hover {
-      background-color: #EEE;
+        &:hover {
+            background-color: #eee;
+        }
     }
-  }
 }
 
 .datetime {
-  color: #e394b2;
+    color: #e394b2;
 }
 
 .pagination {
-  list-style: none;
-  display: inline-block;
-  margin-top: 20px;
-
-  &__item {
+    list-style: none;
     display: inline-block;
-  }
-}
+    margin-top: 20px;
 
-.widget {
-  margin-bottom: 50px;
-
-  &__header {
-    margin: 0 0 10px 0;
-    border-bottom: solid 1px #eee;
-    text-align: center;
-    font-size: 20px;
-  }
-
-  &__title {
-    display: inline-block;
-    margin-bottom: -1px;
-    padding-bottom: 10px;
-    border-bottom: solid 1px $main-color;
-  }
+    &__item {
+        display: inline-block;
+    }
 }
 
 //TODO custom hover style and transition
 .tag-list {
-  &__item {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px 5px 0;
-    border: solid 1px #e2e2e2;
-    color: #636363;
-    font-size: 10px;
-    transition: all 0.1s linear;
+    &__item {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 5px 5px 0;
+        border: solid 1px #e2e2e2;
+        color: #636363;
+        font-size: 10px;
+        transition: all 0.1s linear;
 
-    &:hover {
-      color: $main-color;
-      border-color: $main-color;
-    }
+        &:hover {
+            color: $main-color;
+            border-color: $main-color;
+        }
 
-    &--big {
-      font-size: 16px;
+        &--big {
+            font-size: 16px;
+        }
     }
-  }
 }
 
 .logo {
-  text-align: center;
-  padding: 10px 20px;
-  height: 120px;
-
-  &__image {
-    height: 40px;
-  }
-
-  &__quote {
     text-align: center;
-    margin-top: 20px;
-    width: 100%;
-    display: block;
-  }
+    display: inline-block;
+
+    >.image {
+        height: 30px;
+    }
+
+    >.quote {
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+        display: block;
+    }
 }
 
 .menu-button {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  display: none;
-  font-size: 24px;
+    font-size: 36px;
+    line-height: 36px;
+    height: 40px;
+    display: none;
 }
 
 .menu {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  //https://yoksel.github.io/flex-cheatsheet/
-  display: flex;
-  max-width: 900px;
-  width: 100%;
-  background-color: #fff;
-  border-top: solid 1px #ddd;
-
-  &--stack {
-    display: block;
-    position: absolute;
-    z-index: 1;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    //https://yoksel.github.io/flex-cheatsheet/
+    display: flex;
+    max-width: 900px;
     width: 100%;
-    top: 100%;
-    left: 0;
-    border-top: solid 1px $main-color;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  &--inactive {
-    display: none;
-  }
-
-  &__item {
-    flex-grow: 1;
-    text-align: center;
-    padding: 10px 20px;
-    position: relative;
+    background-color: #fff;
 
     &--stack {
-      display: block;
-      text-align: left;
-      padding: 10px;
-    }
-  }
-
-  &__link {
-    &:hover {
-      color: $main-color;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .logo {
-    text-align: left;
-
-    &__image {}
-
-    &__quote {
-      text-align: left;
-    }
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 120px;
-    left: 0;
-    z-index: 1;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    border-top: none;
-
-    &--active {
-      display: block;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    &--stack {
-      position: static;
-      box-shadow: none;
-      border-top: solid 1px $main-color;
+    &--inactive {
+        display: none;
     }
 
     &__item {
-      text-align: left;
+        flex-grow: 1;
+        text-align: center;
+        padding: 15px 20px;
+        position: relative;
+
+        &--stack {
+            display: block;
+            text-align: left;
+            padding: 10px;
+        }
     }
-  }
+
+    &__link {
+        &:hover {
+            color: $main-color;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        border-top: none;
+
+        &--active {
+            display: block;
+        }
+
+        &--stack {
+            position: static;
+            box-shadow: none;
+            border-top: solid 1px $main-color;
+        }
+
+        &__item {
+            text-align: left;
+        }
+    }
+}
+
+.top-bar {
+    @include make-row();
+
+    border-bottom: solid #000 1px;
+    padding: 10px 0;
+
+    >.primary-top-bar {
+        @include make-col-ready();
+
+        @include media-breakpoint-up(md) {
+            @include make-col(8);
+        }
+
+        text-align: right;
+    }
+
+    >.secondary-top-bar {
+        @include make-col-ready();
+
+        @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+    }
+}
+
+.primary-top-bar {
+    >.search-bar {
+        margin-left: 10px;
+    }
+
+    >.user-authentication {
+        margin-left: 10px;
+    }
+}
+
+.secondary-top-bar {}
+
+.search-bar {
+    display: inline-block;
+
+    >.text {}
+
+    >.button {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+
+.social-network {
+    display: inline-block;
+}
+
+.user-authentication {
+    display: inline-block;
+    background-color: #4267b2;
+    padding: 2px 5px;
+    color: #FFF;
 }

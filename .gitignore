@@ -1,3 +1,13 @@
 ﻿node_modules
 Scripts/**/*.js
 Styles/**/*.css
+
+#Exclude font
+Styles/**/*.eot
+Styles/**/*.svg
+Styles/**/*.ttf
+Styles/**/*.woff
+Styles/**/*.woff2
+
+bin
+debug

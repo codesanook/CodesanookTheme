@@ -1,0 +1,18 @@
+@using Orchard.Tags.Models
+
+@if (((IEnumerable<object>)Model.TagCounts).Any()) {
+    <div class="tag_list">
+        @foreach (TagCount tagCount in Model.TagCounts) {
+            @Html.ActionLink(
+               tagCount.TagName + " " + tagCount.Count,
+               "Search",
+               "Home",
+               new { area = "Orchard.Tags", tagName = tagCount.TagName },
+               new { @class = "tag-list__item" }
+           )
+        }
+    </div>
+}
+else {
+    <div>@T("There are no tags to display.")</div>
+}

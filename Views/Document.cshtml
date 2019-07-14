@@ -5,7 +5,7 @@
 @{
 
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico") });
-    //register in ResourceManifest
+    // Register in ResourceManifest
     Script.Require("React").AtHead();
     Script.Require("ReactDOM").AtHead();
     Style.Include("style.css").AtHead();
@@ -23,6 +23,8 @@
     @Display(Model.Head)
 </head>
 <body>
+    @Display(Model.AfterBody)
+
     @Display(Model.Body)
 
     @*Shape tracer attach here*@

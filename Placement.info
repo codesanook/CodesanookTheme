@@ -14,4 +14,7 @@
     <Place Parts_Common_Metadata="-"/>
   </Match>
 -->
+    <Match ContentType="BlogPost" DisplayType="Detail">
+        <Place Parts_Title="wrapper=Wrapper__BlogPost;Header" />
+    </Match>
 </Placement>
