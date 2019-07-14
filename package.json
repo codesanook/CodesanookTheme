@@ -4,6 +4,7 @@
     "description": "Free open source theme for Orchard CMS",
     "scripts": {
         "dev": "webpack --mode=development",
+        "watch": "webpack --mode=development --watch",
         "build": "webpack --progress --colors --mode=production"
     },
     "author": {

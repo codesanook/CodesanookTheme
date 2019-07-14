@@ -1,0 +1,26 @@
+﻿@{
+    // number of page number links to show, 0 means no link, 1 means only the current page, or more accepted.
+    Model.Quantity = 0;
+    
+    Model.PreviousText = T("Newer");
+    Model.NextText = T("Older");
+    Model.Classes.Add("group");
+    Model.Metadata.Alternates.Clear();
+    Model.Metadata.Type = "Pager_Links";
+}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+@*Display(Model)*@

@@ -7,10 +7,14 @@ Useful links
 https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
 */
 
-$main-color: #e394b2;
+$main-color: #F79929;
 
 * {
     box-sizing: border-box !important;
+}
+
+body {
+    background-color: #F8F8F8 !important;
 }
 
 #btn-main-nav {
@@ -91,6 +95,11 @@ body {
 }
 
 .article {
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    background-color: #FFF;
+
     &__picture {
         width: 100%;
         margin-bottom: 10px;
@@ -101,6 +110,10 @@ body {
         font-weight: bold;
         font-size: 20px;
         transition: color 0.1s linear;
+
+        &:link, &:active, &:visited {
+            color: #23527C;
+        }
 
         &:hover {
             color: $main-color;
@@ -126,43 +139,46 @@ body {
     }
 }
 
+
 .article-list {
     list-style: none;
     padding: 0;
     margin: 0;
 
-    &__item {
-        padding: 10px;
-
-        &:hover {
-            background-color: #eee;
-        }
+    .article {
+        margin-bottom: 20px;
     }
 }
 
+.article-details {
+    .header {
+        margin-bottom: 20px;
+    }
+
+    .body {
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        border-radius: 6px;
+        background-color: #FFF;
+
+        img {
+            max-width:100%;
+        }
+    }
+}
 .datetime {
     color: #e394b2;
 }
 
-.pagination {
-    list-style: none;
-    display: inline-block;
-    margin-top: 20px;
-
-    &__item {
-        display: inline-block;
-    }
-}
-
 //TODO custom hover style and transition
 .tag-list {
-    &__item {
+    >.item {
         display: inline-block;
-        padding: 5px 10px;
+        padding: 2px 5px;
         margin: 0 5px 5px 0;
         border: solid 1px #e2e2e2;
         color: #636363;
-        font-size: 10px;
+        font-size: 12px;
         transition: all 0.1s linear;
 
         &:hover {
@@ -180,11 +196,11 @@ body {
     text-align: center;
     display: inline-block;
 
-    >.image {
+    > .image {
         height: 30px;
     }
 
-    >.quote {
+    > .quote {
         text-align: center;
         margin-top: 20px;
         width: 100%;
@@ -283,11 +299,10 @@ body {
 
 .top-bar {
     @include make-row();
-
     border-bottom: solid #000 1px;
     padding: 10px 0;
 
-    >.primary-top-bar {
+    > .primary-top-bar {
         @include make-col-ready();
 
         @include media-breakpoint-up(md) {
@@ -297,7 +312,7 @@ body {
         text-align: right;
     }
 
-    >.secondary-top-bar {
+    > .secondary-top-bar {
         @include make-col-ready();
 
         @include media-breakpoint-up(md) {
@@ -307,23 +322,25 @@ body {
 }
 
 .primary-top-bar {
-    >.search-bar {
+    > .search-bar {
         margin-left: 10px;
     }
 
-    >.user-authentication {
+    > .user-authentication {
         margin-left: 10px;
     }
 }
 
-.secondary-top-bar {}
+.secondary-top-bar {
+}
 
 .search-bar {
     display: inline-block;
 
-    >.text {}
+    > .text {
+    }
 
-    >.button {
+    > .button {
         display: inline-block;
         margin-left: 10px;
     }
@@ -337,5 +354,26 @@ body {
     display: inline-block;
     background-color: #4267b2;
     padding: 2px 5px;
-    color: #FFF;
+}
+
+.facebook-login{
+    padding:0 5px;
+    &:link, &:active, &:visited, &:hover {
+        color: #FFF;
+    }
+
+    .icon{
+        margin-right:5px;
+    }
+}
+
+
+.blog-title {
+    color: $main-color;
+}
+
+.widget{
+    .title{
+
+    }
 }

@@ -5,7 +5,9 @@
     Model.ContentItems.Classes.Add("article-list");
 
 }
+
 @Display(Model.ContentItems)
+
 @if (blogPosts == null || blogPosts.Count() < 1) {
     <p>@T("There are no posts for this blog.")</p>
 }

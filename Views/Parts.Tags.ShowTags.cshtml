@@ -2,15 +2,11 @@
     var tagsHtml = new List<IHtmlString>();
     foreach (var t in Model.Tags)
     {
-        if (tagsHtml.Any())
-        {
-            tagsHtml.Add(new HtmlString(", "));
-        }
         tagsHtml.Add(
             Html.ActionLink((string)t.TagName,
                 "Search",
                 "Home",
-                new { area = "Orchard.Tags", tagName = (string)t.TagName }, new { @class = "tag-list__item" }
+                new { area = "Orchard.Tags", tagName = (string)t.TagName }, new { @class = "item" }
             )
         );
     }
@@ -21,6 +17,8 @@
     <div class="tag-list">
         <span>@T("Tags:")</span>
         @foreach (var htmlString in tagsHtml)
-        {@htmlString}
+        {
+            @htmlString
+        }
     </div>
 }
