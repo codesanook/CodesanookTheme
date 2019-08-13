@@ -6,7 +6,7 @@ namespace CodesanookTheme {
         public void Activated() {
             ReactSiteConfiguration.Configuration
                 .SetLoadBabel(false)
-                .AddScriptWithoutTransform("~/Themes/CodesanookTheme/scripts/main-bundle.js");
+                .AddScriptWithoutTransform("~/Themes/CodesanookTheme/scripts/codesanook-theme.js");
         }
 
         public void Terminating() {
