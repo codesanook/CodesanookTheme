@@ -268,17 +268,31 @@ body {
     background-color: #4267b2;
     padding: 2px 2px;
     color: #222;
+
+    > .facebook-authentication {
+        margin: 0px 5px;
+    }
+
+    .admin-dashboard {
+        margin: 0px 5px;
+    }
 }
 
 .facebook-authentication {
     padding: 0 5px;
+    text-align: center;
 
     &:link, &:active, &:visited, &:hover {
         color: #FFF;
     }
+}
 
-    .icon {
-        margin-right: 5px;
+.admin-dashboard {
+    padding: 0 5px;
+    text-align: center;
+
+    &:link, &:active, &:visited, &:hover {
+        color: #FFF;
     }
 }
 

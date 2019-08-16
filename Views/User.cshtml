@@ -18,14 +18,15 @@
 <div class='user-authentication'>
     @if (WorkContext.CurrentUser != null)
     {
-        <span>Hello @Html.ItemDisplayText(WorkContext.CurrentUser)</span>
-        <a href="@logOutUrl" class='facebook-authentication'>
-            <i class="icon fa fa-facebook-f"></i>
-            Log out
+        <a href="@logOutUrl" class='facebook-authentication' title="log out">
+            <i class="icon fa fa-sign-out"></i>
         </a>
         if (AuthorizedFor(Orchard.Security.StandardPermissions.AccessAdminPanel))
         {
-            @Html.ActionLink(T("Dashboard").ToString(), "Index", new { Area = "Dashboard", Controller = "Admin" })
+            var dashboardUrl = this.Url.Action("Index", new { Controller = "Admin", Area = "Dashboard" });
+            <a href="@dashboardUrl" class="admin-dashboard" title="dashboard">
+                <i class="icon fa fa-desktop"></i>
+            </a>
         }
     }
     else
