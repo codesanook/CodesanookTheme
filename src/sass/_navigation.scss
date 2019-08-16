@@ -1,0 +1,102 @@
+﻿
+#btn-main-nav {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 7px 15px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.menu-button {
+    font-size: 36px;
+    line-height: 36px;
+    height: 40px;
+    display: none;
+
+    @include media-breakpoint-down(xs) {
+        display: block;
+    }
+}
+
+.top-navigation {
+    position: relative;
+}
+
+.menu-item-container {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    //https://yoksel.github.io/flex-cheatsheet/
+    max-width: 900px;
+    width: 100%;
+
+    @include media-breakpoint-down(xs) {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        border-top: none;
+    }
+
+    &.-stack {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 90%; //under parent
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+
+        @include media-breakpoint-down(xs) {
+            position: static;
+            box-shadow: none;
+        }
+    }
+
+    &.-active {
+        @include media-breakpoint-down(xs) {
+            display: block;
+        }
+    }
+
+    &.-inactive {
+        display: none;
+    }
+}
+
+.menu-item {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    color: #ff0000;
+
+    @include media-breakpoint-down(xs) {
+        text-align: left;
+    }
+
+    &.-stack {
+        display: block;
+        text-align: left;
+    }
+
+    > .link {
+        display: block;
+        padding: 10px 20px;
+    }
+
+    > .link.-stack {
+        padding-left: 30px;
+    }
+
+    > .link:hover {
+        color: $main-color;
+    }
+}

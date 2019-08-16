@@ -19,7 +19,10 @@
     @if (WorkContext.CurrentUser != null)
     {
         <span>Hello @Html.ItemDisplayText(WorkContext.CurrentUser)</span>
-        <a href="@logOutUrl" class='logout'><i class="fa fa-facebook-f"></i>Log out</a>
+        <a href="@logOutUrl" class='facebook-authentication'>
+            <i class="icon fa fa-facebook-f"></i>
+            Log out
+        </a>
         if (AuthorizedFor(Orchard.Security.StandardPermissions.AccessAdminPanel))
         {
             @Html.ActionLink(T("Dashboard").ToString(), "Index", new { Area = "Dashboard", Controller = "Admin" })
@@ -27,7 +30,7 @@
     }
     else
     {
-        <a href="@logInUrl" class='facebook-login'>
+        <a href="@logInUrl" class='facebook-authentication'>
             <i class="icon fa fa-facebook-f"></i>
             Log in
         </a>

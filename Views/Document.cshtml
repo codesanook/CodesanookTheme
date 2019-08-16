@@ -1,6 +1,5 @@
 ﻿@using Orchard.Mvc.Html
 @using Orchard.UI.Resources
-@using Codesanook.Common.Web
 
 @{
 
@@ -9,7 +8,7 @@
     Script.Require("React").AtHead();
     Script.Require("ReactDOM").AtHead();
     Style.Include("style.css").AtHead();
-    Script.Include("main-bundle.js").AtHead();
+    Script.Include("codesanook-theme.js").AtHead();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);

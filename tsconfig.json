@@ -14,10 +14,9 @@
         "jsx": "react"
     },
     "include": [
-        "src/**/*.js"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules"
-    ],
-    "compileOnSave": false
+    ]
 }

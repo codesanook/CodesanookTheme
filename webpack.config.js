@@ -9,6 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, 'scripts'),
         filename: '[name].js',
     },
+
     resolve: {
         extensions: ['.ts', '.tsx', '.js', 'jsx']
     },
@@ -17,8 +18,7 @@ module.exports = {
             test: /\.(ts|js)x?$/,
             loader: 'babel-loader',
             exclude: /node_modules/
-        },
-        {
+        }, {
             test: /\.scss$/,
             use: [{
                 loader: MiniCssExtractPlugin.loader,
@@ -39,7 +39,7 @@ module.exports = {
             }, {
                 loader: 'sass-loader', // compiles Sass to CSS, using Node Sass by default
                 options: {
-                    sourceMap: true,
+                    sourceMap: true
                 }
             }],
             exclude: /node_modules/
@@ -53,8 +53,7 @@ module.exports = {
                     outputPath: './../styles',
                 }
             }]
-        }
-        ]
+        }]
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -63,5 +62,7 @@ module.exports = {
     ],
     externals: {
         react: 'React'
-    }
+    },
+    //https://webpack.js.org/configuration/devtool/
+    devtool: 'inline-source-map',
 };
