@@ -28,7 +28,7 @@ const Navigation: React.FunctionComponent<Props> = props => {
         if (isOutToChild) {
         } else {
             setActiveMenuName('');
-            console.log(`not out to parent or child`);
+            //console.log(`not out to parent or child`);
         }
     };
 

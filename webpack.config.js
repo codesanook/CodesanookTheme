@@ -57,7 +57,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: './../styles/style.css',
+            filename: './../styles/codesanook-theme.css',
         })
     ],
     externals: {
