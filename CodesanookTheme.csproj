@@ -152,9 +152,9 @@
       <Name>Orchard.Core</Name>
       <Private>$(MvcBuildViews)</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\Modules\CodeSanook.Common\CodeSanook.Common.csproj">
+    <ProjectReference Include="..\..\Modules\Codesanook.Common\Codesanook.Common.csproj">
       <Project>{7104e4b7-0fdc-4734-a812-1c6a8f71635d}</Project>
-      <Name>CodeSanook.Common</Name>
+      <Name>Codesanook.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Modules\Codesanook.ReactJS\Codesanook.ReactJS.csproj">
       <Project>{2a3ac19b-d914-4bce-a691-f92f1851a402}</Project>

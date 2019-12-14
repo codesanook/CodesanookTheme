@@ -1,5 +1,5 @@
 Name: CodesanookTheme
-Author: The Orchard Team
+Author: Codesanook Team
 Website: https://www.codesanook.com
 Description: Simple theme with ReactJS.NET
 Version: 1.0
