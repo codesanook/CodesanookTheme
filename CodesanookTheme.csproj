@@ -126,6 +126,8 @@
     <Content Include="Content\images\pic-ex-06.jpg" />
     <Content Include="Content\images\pic-ex-07.jpg" />
     <Content Include="Scripts\codesanook-theme.js" />
+    <Content Include="Styles\codesanook-theme.css" />
+    <Content Include="Styles\fontawesome-webfont.svg" />
     <Content Include="ThemeZonePreview.png" />
     <Content Include="ThemeZonePreviewPlan.png" />
     <Content Include="Web.config" />
@@ -240,6 +242,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Content-BlogPost.Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fontawesome-webfont.eot" />
+    <Content Include="Styles\fontawesome-webfont.ttf" />
+    <Content Include="Styles\fontawesome-webfont.woff" />
+    <Content Include="Styles\fontawesome-webfont.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
