@@ -1,0 +1,15 @@
+﻿@{
+    // Attributes of parent li
+    var listItemAttributes = Model.Tag.Attributes as IDictionary<string, string>;
+    const string classAttributeKey = "class";
+    if (!listItemAttributes.ContainsKey(classAttributeKey))
+    {
+        listItemAttributes.Add(classAttributeKey, null);
+    }
+
+    var classNames = new[] { listItemAttributes["class"], "disabled" }.Where(c => !string.IsNullOrEmpty(c));
+    listItemAttributes[classAttributeKey] = string.Join(" ", classNames);
+}
+
+<a class="page-link" href="#" tabindex="-1">@Model.Value.ToString()</a>
+

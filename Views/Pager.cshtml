@@ -1,26 +1,27 @@
 ﻿@{
-    // number of page number links to show, 0 means no link, 1 means only the current page, or more accepted.
-    Model.Quantity = 0;
-    
-    Model.PreviousText = T("Newer");
-    Model.NextText = T("Older");
-    Model.Classes.Add("group");
+    // Number of page number links to show, 0 means no link, 1 means only the current page, or more accepted.
+    Model.Quantity = 5;
+
+    Model.FirstText = T("First");
+    Model.LastText = T("Last");
+
+    Model.PreviousText = T("Previous");
+    Model.NextText = T("Next");
+
     Model.Metadata.Alternates.Clear();
+
+    // Later, Model.Metadata.Type will be set to List type in CoreShapes.Pager_Links method
     Model.Metadata.Type = "Pager_Links";
+
+    // Add classes for ul tag (List core shape)
+    Model.Classes.Add("pagination");
+    Model.Classes.Add("justify-content-center");
+
+    // Add class for li tag (List core shape)
+    Model.ItemClasses = new List<string>() { "page-item" };
 }
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
+<nav>
+    @Display(Model)
 </nav>
 
-@*Display(Model)*@
