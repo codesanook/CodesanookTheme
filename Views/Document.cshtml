@@ -2,8 +2,15 @@
 @using Orchard.UI.Resources
 
 @{
-    RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico") });
+    RegisterLink(
+        new LinkEntry {
+            Type = "image/x-icon",
+            Rel = "shortcut icon",
+            Href = Url.Content("~/Themes/TheBootstrapMachine/Content/favicon.ico")
+        }
+    );
     Style.Include("codesanook-theme.css").AtHead();
+    Script.Include("codesanook-theme.js").AtHead();
 
     // Register in ResourceManifest
     Script.Require("React").AtHead();
@@ -11,9 +18,8 @@
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
-
-    Script.Include("codesanook-theme.js").AtHead();
 }
+
 <!DOCTYPE html>
 <html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage()">
 <head>
